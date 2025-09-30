@@ -1,9 +1,15 @@
+import { Route, Routes } from "react-router"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 
 const App = () => {
   return (
-    <div className="text-3xl font-bold underline flex justify-center items-center h-screen">
-      Hello World
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </>
   )
 }
 
