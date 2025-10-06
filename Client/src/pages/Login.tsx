@@ -11,11 +11,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
-import loginImage from "../assets/undraw_chat-interface_vofq.svg";
-import logo from "../../public/logoipsum-396.svg";
+import loginImage from "../assets/undraw_secure-login_m11a.svg";
+import logo from "../assets/logoipsum-396.svg";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex justify-center items-center h-screen space-x-24 px-5">
       {/* Login Card */}
@@ -24,7 +27,9 @@ const Login = () => {
           <div className="flex justify-center">
             <img src={logo} alt="logo" className="w-10 h-10" />
           </div>
-          <CardTitle className="text-2xl font-bold">Login to your account</CardTitle>
+          <CardTitle className="text-2xl font-bold">
+            Login to your account
+          </CardTitle>
           <CardDescription>
             Welcome back! Enter your details below.
           </CardDescription>
@@ -83,12 +88,28 @@ const Login = () => {
           <Button type="submit" className="w-full">
             Login
           </Button>
-          <p className="text-sm text-muted-foreground">
-            Don’t have an account?{" "}
-            <Button variant="link" className="px-1 h-auto">
-              Sign Up
-            </Button>
-          </p>
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground">
+              Don’t have an account?{" "}
+              <Button
+                variant="link"
+                className="px-1 h-auto"
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
+                Sign Up
+              </Button>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Want to register as an agency?{" "}
+              <Button variant="link" className="px-1" onClick={() => {
+                navigate("/agency-registration");
+              }}>
+                Register here
+              </Button>
+            </p>
+          </div>
         </CardFooter>
       </Card>
 

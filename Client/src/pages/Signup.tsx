@@ -11,11 +11,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 import loginImage from "../assets/undraw_real-time-sync_ro77.svg";
-import logo from "../../public/logoipsum-396.svg";
+import logo from "../assets/logoipsum-396.svg";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex justify-center items-center h-screen space-x-24 px-5">
       {/* Left side image */}
@@ -29,7 +32,9 @@ const Signup = () => {
           <div className="flex justify-center">
             <img src={logo} alt="logo" className="w-10 h-10" />
           </div>
-          <CardTitle className="text-2xl font-bold">Create your account</CardTitle>
+          <CardTitle className="text-2xl font-bold">
+            Create your account
+          </CardTitle>
           <CardDescription>
             Join us today! Enter your details to sign up.
           </CardDescription>
@@ -67,15 +72,30 @@ const Signup = () => {
             </div>
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="m@example.com" required />
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="••••••••" required />
+              <Input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                required
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="confirmPassword">Confirm Password</Label>
-              <Input id="confirmPassword" type="password" placeholder="••••••••" required />
+              <Input
+                id="confirmPassword"
+                type="password"
+                placeholder="••••••••"
+                required
+              />
             </div>
           </form>
         </CardContent>
@@ -84,12 +104,32 @@ const Signup = () => {
           <Button type="submit" className="w-full">
             Sign Up
           </Button>
-          <p className="text-sm text-muted-foreground">
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground">
             Already have an account?{" "}
-            <Button variant="link" className="px-1 h-auto">
+            <Button
+              variant="link"
+              className="px-1"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               Login
             </Button>
           </p>
+          <p className="text-sm text-muted-foreground">
+            Want to register as an agency?{" "}
+            <Button
+              variant="link"
+              className="px-1"
+              onClick={() => {
+                navigate("/agency-registration");
+              }}
+            >
+              Register here
+            </Button>
+          </p>
+          </div>
         </CardFooter>
       </Card>
     </div>
